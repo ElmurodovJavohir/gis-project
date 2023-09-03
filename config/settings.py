@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     "django_celery_beat",
     "import_export",
     # apps
-    "avtoelon",
+    "gis",
     "baton.autodiscover",
 ]
 
