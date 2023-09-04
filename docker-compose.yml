@@ -5,9 +5,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    depends_on:
-      - postgres
-      - redis
     volumes:
       - .:/app:cached
     env_file:
