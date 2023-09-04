@@ -50,8 +50,6 @@ INSTALLED_APPS = [
     "drf_spectacular",
     # "django_elasticsearch_dsl",
     # "django_elasticsearch_dsl_drf",
-    "django_better_admin_arrayfield",
-    "django_celery_beat",
     "import_export",
     # apps
     "gis",
@@ -120,16 +118,6 @@ DATABASES = {
     #     "PORT": os.getenv("POSTGRES_PORT", "5432"),
     #     "ATOMIC_REQUESTS": True,
     # },
-}
-REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": REDIS_URL,
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-    }
 }
 
 
@@ -238,16 +226,6 @@ REST_FRAMEWORK = {
 if not DEBUG:
     REST_FRAMEWORK["EXCEPTION_HANDLER"] = ("common.exception.api_exception_handler",)
 
-
-# Celery
-if USE_TZ:
-    CELERY_TIMEZONE = TIME_ZONE
-CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", REDIS_URL)
-BROKER_URL = os.getenv("BROKER_URL", REDIS_URL)
-CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND", REDIS_URL)
-CELERY_ACCEPT_CONTENT = ["json"]
-CELERY_TASK_SERIALIZER = "json"
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 CORS_ALLOW_ALL_ORIGINS = (
     True  # noqa If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
