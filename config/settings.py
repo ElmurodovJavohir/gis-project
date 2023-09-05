@@ -140,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = "ru-ru"
-CSRF_TRUSTED_ORIGINS = ["https://pricing.smartbots.uz", "http://localhost:8080"]
+CSRF_TRUSTED_ORIGINS = ["https://gis.smartbots.uz", "http://localhost:8080"]
 
 
 def gettext(s):
@@ -276,8 +276,8 @@ LOGGING = {
 
 
 BATON = {
-    "SITE_TITLE": "Pricing ",
-    "INDEX_TITLE": "Pricing",
+    "SITE_TITLE": "GIS ",
+    "INDEX_TITLE": "GIS",
     "SUPPORT_HREF": "https://t.me/elmurodovjavohir",
     # "COPYRIGHT": 'Copyright © 2023 <a href="https://texnomart.uz">Texnomart.uz</a>',  # noqa
     "COPYRIGHT": "",  # noqa
