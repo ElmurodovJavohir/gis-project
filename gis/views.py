@@ -57,3 +57,27 @@ class ZonesMapList(generics.ListAPIView):
 class NomenclatureList(generics.ListAPIView):
     queryset = Nomenclatures.objects.all().prefetch_related("topo", "cosmo", "map")
     serializer_class = NomenclaturesSerializer
+
+
+class NomenclaturesTopoList(generics.ListAPIView):
+    queryset = NomenclatureTopo.objects.all()
+    serializer_class = NomenclaturesTopoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(nomenclature_id=self.kwargs["id"])
+
+
+class NomenclaturesCosmoList(generics.ListAPIView):
+    queryset = NomenclatureTopo.objects.all()
+    serializer_class = NomenclatureCosmoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(nomenclature_id=self.kwargs["id"])
+
+
+class NomenclaturesMapList(generics.ListAPIView):
+    queryset = NomenclatureMap.objects.all()
+    serializer_class = NomenclatureMapSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(nomenclature_id=self.kwargs["id"])
