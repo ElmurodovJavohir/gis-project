@@ -72,3 +72,61 @@ class NomenclatureMap(BaseModel):
 
     def __str__(self):
         return self.title
+
+
+# Create your models here.
+class Ranks(BaseModel):
+    title = models.CharField(max_length=100, verbose_name="Ranks title")
+
+    def __str__(self):
+        return self.title
+
+
+class RankTopo(BaseModel):
+    image = models.ImageField(upload_to="ranks-topo", verbose_name="Rank Topo")
+    rank = models.ForeignKey(
+        Ranks, on_delete=models.CASCADE, related_name="topo", verbose_name="Rank"
+    )
+
+
+class RankCosmo(BaseModel):
+    image = models.ImageField(upload_to="ranks-cosmo", verbose_name="Rank cosmo")
+    rank = models.ForeignKey(
+        Ranks, on_delete=models.CASCADE, related_name="cosmo", verbose_name="Rank"
+    )
+
+
+class RankMap(BaseModel):
+    image = models.ImageField(upload_to="ranks-map", verbose_name="Rank map")
+    rank = models.ForeignKey(
+        Ranks, on_delete=models.CASCADE, related_name="map", verbose_name="Rank"
+    )
+
+
+# Create your models here.
+class Columns(BaseModel):
+    title = models.CharField(max_length=100, verbose_name="Columns title")
+
+    def __str__(self):
+        return self.title
+
+
+class ColumnTopo(BaseModel):
+    image = models.ImageField(upload_to="columns-topo", verbose_name="Column Topo")
+    column = models.ForeignKey(
+        Columns, on_delete=models.CASCADE, related_name="topo", verbose_name="Column"
+    )
+
+
+class ColumnCosmo(BaseModel):
+    image = models.ImageField(upload_to="columns-cosmo", verbose_name="Column cosmo")
+    column = models.ForeignKey(
+        Columns, on_delete=models.CASCADE, related_name="cosmo", verbose_name="Column"
+    )
+
+
+class ColumnMap(BaseModel):
+    image = models.ImageField(upload_to="columns-map", verbose_name="Column map")
+    column = models.ForeignKey(
+        Columns, on_delete=models.CASCADE, related_name="map", verbose_name="Column"
+    )

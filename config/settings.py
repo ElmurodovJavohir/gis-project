@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 INSTALLED_APPS = [
     "baton",
+    "modeltranslation",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -148,13 +149,13 @@ def gettext(s):
 
 
 LANGUAGES = (
-    ("ru", gettext("Uzbek-latin")),
-    ("kr", gettext("Uzbek-cyrillic")),
+    ("uz", gettext("Uzbek")),
+    ("en", gettext("English")),
     ("ru", gettext("Russian")),
 )
-MODELTRANSLATION_DEFAULT_LANGUAGE = "ru"
+MODELTRANSLATION_DEFAULT_LANGUAGE = "uz"
 # REQUEST LANGUAGES
-REQUEST_LANGUAGES = ("ru", "ru", "kr")
+REQUEST_LANGUAGES = ("uz", "ru", "en")
 DEFAULT_LANGUAGE = "ru"
 
 TIME_ZONE = "UTC"

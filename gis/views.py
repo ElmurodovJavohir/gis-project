@@ -11,6 +11,14 @@ from gis.serializers import (
     NomenclaturesTopoSerializer,
     NomenclatureCosmoSerializer,
     NomenclatureMapSerializer,
+    RanksSerializer,
+    RanksTopoSerializer,
+    RankMapSerializer,
+    RankCosmoSerializer,
+    ColumnsSerializer,
+    ColumnsTopoSerializer,
+    ColumnMapSerializer,
+    ColumnCosmoSerializer,
 )
 from rest_framework import generics
 from gis.models import (
@@ -22,6 +30,14 @@ from gis.models import (
     NomenclatureTopo,
     NomenclatureCosmo,
     NomenclatureMap,
+    Ranks,
+    RankCosmo,
+    RankMap,
+    RankTopo,
+    Columns,
+    ColumnTopo,
+    ColumnMap,
+    ColumnCosmo,
 )
 
 
@@ -39,7 +55,7 @@ class ZonesTopoList(generics.ListAPIView):
 
 
 class ZonesCosmoList(generics.ListAPIView):
-    queryset = ZoneTopo.objects.all()
+    queryset = ZoneCosmo.objects.all()
     serializer_class = ZoneCosmoSerializer
 
     def get_queryset(self):
@@ -68,7 +84,7 @@ class NomenclaturesTopoList(generics.ListAPIView):
 
 
 class NomenclaturesCosmoList(generics.ListAPIView):
-    queryset = NomenclatureTopo.objects.all()
+    queryset = NomenclatureCosmo.objects.all()
     serializer_class = NomenclatureCosmoSerializer
 
     def get_queryset(self):
@@ -81,3 +97,61 @@ class NomenclaturesMapList(generics.ListAPIView):
 
     def get_queryset(self):
         return super().get_queryset().filter(nomenclature_id=self.kwargs["id"])
+
+
+class RanksList(generics.ListAPIView):
+    queryset = Ranks.objects.all()
+    serializer_class = RanksSerializer
+
+
+class RanksTopoList(generics.ListAPIView):
+    queryset = RankTopo.objects.all()
+    serializer_class = RanksTopoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(rank_id=self.kwargs["id"])
+
+
+class RanksCosmoList(generics.ListAPIView):
+    queryset = RankCosmo.objects.all()
+    serializer_class = RankCosmoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(rank_id=self.kwargs["id"])
+
+
+class RanksMapList(generics.ListAPIView):
+    queryset = RankMap.objects.all()
+    serializer_class = RankMapSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(rank_id=self.kwargs["id"])
+
+
+class ColumnsList(generics.ListAPIView):
+    queryset = Columns.objects.all()
+    serializer_class = ColumnsSerializer
+
+
+class ColumnsTopoList(generics.ListAPIView):
+    queryset = ColumnTopo.objects.all()
+    serializer_class = ColumnsTopoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(column_id=self.kwargs["id"])
+
+
+class ColumnsCosmoList(generics.ListAPIView):
+    queryset = ColumnCosmo.objects.all()
+    serializer_class = ColumnCosmoSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(column_id=self.kwargs["id"])
+
+
+class ColumnsMapList(generics.ListAPIView):
+    queryset = ColumnMap.objects.all()
+    serializer_class = ColumnMapSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(column_id=self.kwargs["id"])
