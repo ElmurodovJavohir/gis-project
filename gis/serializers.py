@@ -30,10 +30,6 @@ class ZonesTopoSerializer(serializers.ModelSerializer):
 
 
 class ZonesSerializer(serializers.ModelSerializer):
-    topo = ZonesTopoSerializer(many=True, read_only=True)
-    cosmo = ZoneCosmoSerializer(many=True, read_only=True)
-    map = ZoneMapSerializer(many=True, read_only=True)
-
     class Meta:
         model = Zones
         fields = "__all__"
@@ -58,10 +54,6 @@ class NomenclaturesTopoSerializer(serializers.ModelSerializer):
 
 
 class NomenclaturesSerializer(serializers.ModelSerializer):
-    topo = NomenclaturesTopoSerializer(many=True, read_only=True)
-    cosmo = NomenclatureCosmoSerializer(many=True, read_only=True)
-    map = NomenclatureMapSerializer(many=True, read_only=True)
-
     class Meta:
         model = Nomenclatures
         fields = "__all__"
