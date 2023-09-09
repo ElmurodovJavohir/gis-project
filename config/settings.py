@@ -225,7 +225,8 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 if not DEBUG:
-    REST_FRAMEWORK["EXCEPTION_HANDLER"] = ("common.exception.api_exception_handler",)
+    REST_FRAMEWORK["EXCEPTION_HANDLER"] = (
+        "common.exception.api_exception_handler",)
 
 
 CORS_ALLOW_ALL_ORIGINS = (
@@ -236,7 +237,7 @@ CORS_ALLOW_CREDENTIALS = True
 #     'http://localhost:8000',
 # ]
 HOST = os.getenv("HOST", "http://localhost:8000")
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = True
 
 LOGGING = {
     "version": 1,
