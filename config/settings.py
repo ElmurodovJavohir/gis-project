@@ -236,7 +236,7 @@ CORS_ALLOW_CREDENTIALS = True
 #     'http://localhost:8000',
 # ]
 HOST = os.getenv("HOST", "http://localhost:8000")
-
+CORS_ORIGIN_ALLOW_ALL=True
 
 LOGGING = {
     "version": 1,
