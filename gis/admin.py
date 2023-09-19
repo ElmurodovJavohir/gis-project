@@ -8,6 +8,15 @@ from gis.models import (
     NomenclatureCosmo,
     NomenclatureMap,
     NomenclatureTopo,
+    Ranks,
+    RankCosmo,
+    RankMap,
+    RankTopo,
+    Columns,
+    ColumnCosmo,
+    ColumnMap,
+    ColumnTopo,
+
 )
 
 # Register your models here.
@@ -21,5 +30,13 @@ admin.site.register(
         NomenclatureCosmo,
         NomenclatureMap,
         NomenclatureTopo,
+        Ranks,
+        RankCosmo,
+        RankMap,
+        RankTopo,
+        Columns,
+        ColumnCosmo,
+        ColumnMap,
+        ColumnTopo,
     ]
 )
